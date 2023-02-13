@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "clinyong.vscode-css-modules",
+    "vivaxy.vscode-conventional-commits",
+    "nrwl.angular-console",
+    "firsttris.vscode-jest-runner",
+    "vunguyentuan.vscode-css-variables"
+  ]
+}
