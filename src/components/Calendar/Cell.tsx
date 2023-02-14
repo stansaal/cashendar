@@ -1,12 +1,15 @@
-import { CSSProperties, PropsWithChildren } from "react";
+interface ICellProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-interface ICellProps {
-  style?: CSSProperties;
-}
-
-const Cell = (props: PropsWithChildren<ICellProps>) => {
-  const { children, style } = props;
-  return <div {...{ style }}>{children}</div>;
+const Cell = (props: React.PropsWithChildren<ICellProps>) => {
+  const { children } = props;
+  return (
+    <div
+      className="border border-gray-300 flex flex-col justify-start p-1 -mb-[1px] -mr-[1px] h-[calc(100vw/7)]"
+      {...props}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Cell;
