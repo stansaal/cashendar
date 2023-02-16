@@ -1,4 +1,4 @@
-import { MONTHS, getDateRangeArray } from "../../utils";
+import { MONTHS, getDateRangeArray, getDiff } from "../../utils";
 import Cell from "./Cell";
 import Weekdays from "./Weekdays";
 
@@ -14,6 +14,8 @@ const Calendar = (props: ICalendarProps) => {
 
   const startWeekday = new Date(dates[0]).getDay();
 
+  const diff = getDiff(5_000_000, dates.length);
+
   return (
     <div className="relative">
       <Weekdays />
@@ -27,13 +29,14 @@ const Calendar = (props: ICalendarProps) => {
 
           return (
             <Cell key={date} style={dateIndex === 0 ? { gridColumnStart: startWeekday } : undefined}>
-              <div className="text-right">
+              <div className="text-left">
                 <div>
                   {dayOfMonth}
                   {dayOfMonth === 1 || dateIndex === 0 ? ` ${monthName}` : null}
                 </div>
                 {(monthIndex === 0 && dayOfMonth === 1) || dateIndex === 0 ? <div>{year}</div> : null}
               </div>
+              <div className="text-right">{Math.round(diff * (dateIndex + 1))}</div>
             </Cell>
           );
         })}
